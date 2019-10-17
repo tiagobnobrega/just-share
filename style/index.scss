@@ -1,0 +1,12 @@
+//Basic
+@import "reset";
+@import "typography";
+//Bulma imports
+@import "../node_modules/bulma/sass/utilities/_all.sass";
+@import "../node_modules/bulma/sass/elements/container.sass";
+@import "../node_modules/bulma/sass/components/navbar.sass";
+//Bulma theme & override
+@import "bulma-lumen";
+@import "bulma-overrides.scss";
+
+

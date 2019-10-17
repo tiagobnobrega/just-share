@@ -1,14 +1,13 @@
-import {writable} from 'svelte/store';
+import { db } from './common';
 
-const users = writable({
-  'admin':'123456',
-  'tiago':'123456',
-});
-
+const usersCol = db.collection('users');
 export default {
-  subscribe: users.subscribe,
-  async login(user, password){
-    const user = users.get
-  }
-}
-
+  async login(username, password) {
+    const userDoc = await usersCol.doc(username).get();
+    const user = userDoc.data();
+    if (user && user.password === password) {
+      return user;
+    }
+    return null;
+  },
+};
